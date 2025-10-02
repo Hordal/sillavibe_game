@@ -1,5 +1,5 @@
 # 비치 발리볼 (Beach Volleyball)
-
+https://gamma.app/docs/-x7vq7xt4eatzdzm
 간단한 2D 비치 발리볼 게임입니다. 1인용 또는 2인용으로 즐길 수 있습니다.
 
 ## 게임 방법
@@ -97,4 +97,3 @@ graph TD
     end
 ```
 
-https://gamma.app/docs/-x7vq7xt4eatzdzm
