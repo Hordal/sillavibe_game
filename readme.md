@@ -37,7 +37,60 @@
 2.  메뉴에서 '1 Player' 또는 '2 Players'를 선택하고 'Enter' 키를 누릅니다.
 3.  게임을 즐기세요!
 
-## 게임 주소
-https://hordal.github.io/sillavibe_game/
 ## 게임 구조 (Game Structure)
-https://www.mermaidchart.com/app/projects/a5e67b1c-c55d-4ce1-8eb8-ed4e8d49e6c8/diagrams/0a0cdb27-2f74-43be-98ef-e0f670aae50b/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiMGEwY2RiMjctMmY3NC00M2JlLTk4ZWYtZTBmNjcwYWFlNTBiIiwiYWNjZXNzIjoiRWRpdCIsImlhdCI6MTc1OTM5MDQxOH0.d6mkBGCda-w92WXbPg13vb4BHn03Md0s_k3HGShpDPs
+
+```mermaid
+graph TD
+    A[메인 메뉴] -->|1P 또는 2P 선택| B(게임 시작);
+    B --> C{게임 진행};
+    C -->|Esc 키| D[일시정지 메뉴];
+    C -->|세트 종료| E{세트 스코어 확인};
+    D -->|게임 재개| C;
+    D -->|경기 재시작| B;
+    D -->|메인 메뉴로| A;
+    E -->|경기 계속| C;
+    E -->|최종 승리| F[게임 종료 화면];
+    F -->|Enter 키| A;
+```
+
+## 기능 구조 (Function Structure)
+
+```mermaid
+graph TD
+    subgraph HTML
+        A[index.html] --> B(script.js);
+    end
+
+    subgraph Initialization
+        B --> C[initialize];
+        C --> D[initGameObjects];
+        C --> E[gameLoop];
+    end
+
+    subgraph Main Loop
+        E -- 반복 --> E;
+        E --> F{gameState에 따라 분기};
+        F --> G[drawMenu];
+        F --> H[runGameFrame];
+        F --> I[drawPauseMenu];
+        F --> J[drawEndScreen];
+    end
+
+    subgraph Game Frame
+        H --> K[업데이트 함수들];
+        K --> K1[updatePlayer1];
+        K --> K2[updateAI / updatePlayer2];
+        K --> K3[updateBall];
+        H --> L[그리기 함수들];
+        L --> L1[drawCourt];
+        L --> L2[drawPlayer];
+        L --> L3[drawBall];
+        L --> L4[drawScores];
+    end
+
+    subgraph User Input
+        M[document.addEventListener] --> N{키 입력 처리};
+        N --> O[게임 상태 변경];
+        N --> P[플레이어/공 상태 변경];
+    end
+```
