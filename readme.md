@@ -37,6 +37,8 @@
 2.  메뉴에서 '1 Player' 또는 '2 Players'를 선택하고 'Enter' 키를 누릅니다.
 3.  게임을 즐기세요!
 
+## 게임 주소
+https://hordal.github.io/sillavibe_game/
 ## 게임 구조 (Game Structure)
 
 ```mermaid
