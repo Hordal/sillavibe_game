@@ -96,3 +96,5 @@ graph TD
         N --> P[플레이어/공 상태 변경];
     end
 ```
+
+https://gamma.app/docs/-x7vq7xt4eatzdzm
