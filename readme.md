@@ -38,7 +38,7 @@
 3.  게임을 즐기세요!
 
 ## 게임 주소
-https://hordal.github.io/sillavibe_game/
+1. https://hordal.github.io/sillavibe_game/
 ## 게임 구조 (Game Structure)
 
 ```mermaid
